@@ -1,6 +1,15 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import subprocess
+import sys
+
+try:
+    import joblib
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib"])
+    import joblib  # Import lại sau khi cài đặt
+
 import joblib
 
 with open("decision_tree_pipeline.pkl", "rb") as file:
